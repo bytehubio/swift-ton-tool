@@ -12,7 +12,7 @@ public extension TonSdkKit {
     func getKeysBy(_ phrase: String,
                    path: String = "m/44'/396'/0'/0/0",
                    dictionary: TSDKMnemonicDictionary? = .ENGLISH,
-                   _ handler: @escaping (Result<(public: String, secret: String), TSDKClientError>) -> Void
+                   _ handler: @escaping (Result<TSDKKeyPair, TSDKClientError>) -> Void
     ) {
         let wordCount: UInt8 = UInt8(phrase.split(separator: " ").count)
         let params: TSDKParamsOfMnemonicDeriveSignKeys = .init(phrase: phrase, path: path, dictionary: dictionary, word_count: wordCount)
@@ -21,7 +21,8 @@ public extension TonSdkKit {
                 if let error = response.error {
                     handler(.failure(error))
                 } else if let `public` = response.result?.public, let secret = response.result?.secret {
-                    handler(.success((public: `public`, secret: secret)))
+                    let keys: TSDKKeyPair = .init(public: `public`, secret: secret)
+                    handler(.success(keys))
                 }
             }
         }
@@ -29,7 +30,7 @@ public extension TonSdkKit {
 
     func getKeysByRandomPhrase(wordCount: UInt8? = 12,
                                dictionary: TSDKMnemonicDictionary? = .ENGLISH,
-                               _ handler: @escaping (Result<(public: String, secret: String), TSDKClientError>) -> Void
+                               _ handler: @escaping (Result<TSDKKeyPair, TSDKClientError>) -> Void
     ) {
         let params: TSDKParamsOfMnemonicFromRandom = .init(dictionary: dictionary, word_count: wordCount)
         client.crypto.mnemonic_from_random(params

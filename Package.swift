@@ -14,13 +14,15 @@ let package = Package(
             targets: ["swift-ton-sdk-kit"]),
     ],
     dependencies: [
-        .package(name: "TonClientSwift", url: "https://github.com/nerzh/ton-client-swift.git", .upToNextMajor(from: "1.0.0")),
+        .package(name: "TonClientSwift", url: "https://github.com/nerzh/ton-client-swift.git", .upToNextMajor(from: "1.1.1")),
+        .package(name: "BigInt", url: "https://github.com/attaswift/BigInt.git", from: "5.2.1"),
     ],
     targets: [
         .target(
             name: "swift-ton-sdk-kit",
             dependencies: [
                 .product(name: "TonClientSwift", package: "TonClientSwift"),
+                .product(name: "BigInt", package: "BigInt"),
             ])
     ]
 )
