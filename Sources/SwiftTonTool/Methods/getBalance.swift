@@ -8,7 +8,7 @@
 import TonClientSwift
 import BigInt
 
-public extension TonSdkKit {
+public extension SwiftTonTool {
     
     func getBalance(accountAddress: String,
                     _ handler: @escaping (Result<BigInt, TSDKClientError>) -> Void

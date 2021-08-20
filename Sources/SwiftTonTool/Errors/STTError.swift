@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct TSDKKitError: Error, CustomStringConvertible {
+public struct STTError: Error, CustomStringConvertible {
 
     public enum Types {
         case error
     }
 
-    private let title: String = "TSDKKitError"
+    private let title: String = "SwiftTonToolError"
 
     public var type:        Types
     public var reason:      String

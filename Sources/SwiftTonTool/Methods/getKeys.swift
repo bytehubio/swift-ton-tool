@@ -7,7 +7,7 @@
 
 import TonClientSwift
 
-public extension TonSdkKit {
+public extension SwiftTonTool {
 
     func getKeysBy(_ phrase: String,
                    path: String = "m/44'/396'/0'/0/0",

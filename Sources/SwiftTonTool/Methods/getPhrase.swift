@@ -7,7 +7,7 @@
 
 import TonClientSwift
 
-public extension TonSdkKit {
+public extension SwiftTonTool {
     
     func getPhrase(wordCount: UInt8? = 12,
                    dictionary: TSDKMnemonicDictionary? = .ENGLISH,

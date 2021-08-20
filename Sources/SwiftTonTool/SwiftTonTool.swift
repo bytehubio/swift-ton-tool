@@ -1,6 +1,6 @@
 import TonClientSwift
 
-public final class TonSdkKit {
+public final class SwiftTonTool {
 
     public var client: TSDKClientModule
 

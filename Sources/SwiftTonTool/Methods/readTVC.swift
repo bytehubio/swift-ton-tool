@@ -8,7 +8,7 @@
 import Foundation
 import TonClientSwift
 
-public extension TonSdkKit {
+public extension SwiftTonTool {
 
     func readTvc(_ relativeFilePath: String) -> Data {
         let tvc: String = pathToRootDirectory + "/\(relativeFilePath)"

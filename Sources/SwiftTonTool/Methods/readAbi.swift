@@ -7,7 +7,7 @@
 
 import TonClientSwift
 
-public extension TonSdkKit {
+public extension SwiftTonTool {
 
     func readAbi(_ relativeFilePath: String) -> AnyValue {
         let abiJSON: String = pathToRootDirectory + "/\(relativeFilePath)"
